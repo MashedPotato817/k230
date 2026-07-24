@@ -1,0 +1,75 @@
+# 团队共享调试配置
+**/.vscode/
+!/.vscode/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+
+1，入门教程/
+2，视频教程/
+3，原理图/
+4，程序源码/
+5，例程资源文件/
+6，软件资料/
+7，硬件资料/
+9，增值资料/
+tmp/
+
+# 模型验证集图片
+**/det_results
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.env
+
+# 编辑器本地配置
+.idea/
+
+# 日志、临时文件与运行输出
+log/
+logs/
+tmp/
+*.log
+*.tmp
+
+# 摄像头/检测运行产物
+captures/
+recordings/
+*.avi
+*.mp4
+*.h264
+**/det_results/
+**/result/
+**/output/
+
+# 本地训练数据或下载压缩包（如需要纳入版本管理请删掉这两行）
+dataset*/
+*.zip
+
+# 私有模型与训练运行产物（模型请通过受控渠道单独分发）
+*.kmodel
+*.onnx
+*.tflite
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+runs/
+wandb/
+checkpoints/
+
+# 环境变量与密钥（保留可提交的模板）
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Windows / 编辑器杂项
+Thumbs.db
+Desktop.ini
+*.bak
+*.swp
