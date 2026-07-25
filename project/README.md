@@ -7,6 +7,7 @@
 | `capture` | J2 / CSI1 超广角摄像头按键拍照 | [`capture/README.md`](capture/README.md) |
 | `try` | COCO 80 类 YOLOv8 实时物体检测试验 | [`try/README.md`](try/README.md) |
 | `number` | 数字目标检测模型及图像、视频推理脚本 | [`number/README.md`](number/README.md) |
+| `ball` | 钢球目标检测数据集、训练模型与 K230 部署脚本 | [`ball/README.md`](ball/README.md) |
 
 ## 通用运行方式
 
