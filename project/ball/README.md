@@ -37,16 +37,17 @@
 
 ## 数据集
 
-本地数据集位于 `project/ball/dataset`，两个数据集保持独立，类别名称统一为 `gangqiu`。
+本地数据集位于 `project/ball/dataset`。现有图片均已完成人工筛选和清洗，检测类别统一为 `gangqiu`。
 
-| 数据集 | 图片 / XML | 标注框数 | 命名规则 |
-| --- | ---: | ---: | --- |
-| `dataset_xzh` | 95 / 95 | 3,229 | `x000001` 至 `x000095` |
-| `dataset_ywq` | 99 / 99 | 592 | `y000001` 至 `y000099` |
+| 数据集 | 图片 / XML | 标注框数 | 单图最多标注框 | 图片命名 | 状态 |
+| --- | ---: | ---: | ---: | --- | --- |
+| `dataset_xzh` | 58 / 58 | 899 | 70（`x000037.jpg`） | `x000001` 至 `x000058` | 已完成 Pascal VOC 标注 |
+| `dataset_ywq` | 97 / 97 | 574 | 34（`y000018.jpg`） | `y000001` 至 `y000097` | 已完成 Pascal VOC 标注 |
+| `dataset_zhn` | 208 / 0 | — | —（尚未标注） | `z000001` 至 `z000208` | 新增的清洗图片，待标注 |
 
-- 两个数据集均含 `images/`、`xml/` 与 `labels.txt`，图片和 XML 同名配对。
-- `dataset_xzh` 还保留了原始 YOLO 格式的 `labels/`，并已与图片同步命名，便于后续增强或回退。
-- 打包上传时进入对应数据集目录，选择 `images/`、`xml/`、`labels.txt` 压缩；ZIP 根目录不要再包含一层数据集文件夹。
+- `dataset_xzh`、`dataset_ywq` 均含 `images/`、`xml/` 与 `labels.txt`，每张图片都有同名 XML 标注文件；图片和 XML 已分别按 `x000001…`、`y000001…` 连续编号。
+- `dataset_zhn` 当前仅含 `images/`。若要用于训练或按上述压缩包格式上传，需补充对应的 `xml/` 标注文件和类别文件 `labels.txt`（内容为 `gangqiu`）。
+- 打包已标注数据集时，进入对应数据集目录，选择 `images/`、`xml/`、`labels.txt` 压缩；ZIP 根目录不要再包含一层数据集文件夹。
 
 数据集抽样诊断及提升识别准确率的建议见 [`docs/ball_detection_dataset_recommendations.md`](docs/ball_detection_dataset_recommendations.md)。
 
