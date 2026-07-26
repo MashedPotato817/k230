@@ -43,9 +43,11 @@
 | --- | ---: | ---: | ---: | --- | --- |
 | `dataset_xzh` | 58 / 58 | 899 | 70（`x000037.jpg`） | `x000001` 至 `x000058` | 已完成 Pascal VOC 标注 |
 | `dataset_ywq` | 97 / 97 | 574 | 34（`y000018.jpg`） | `y000001` 至 `y000097` | 已完成 Pascal VOC 标注 |
+| `gangzhu_k230_data_m1` | 155 / 155 | 1,473 | 70（`x000037.jpg`） | `x000001…`、`y000001…` | X、Y 数据集原样混合，可用于训练 |
 | `dataset_zhn` | 208 / 0 | — | —（尚未标注） | `z000001` 至 `z000208` | 新增的清洗图片，待标注 |
 
 - `dataset_xzh`、`dataset_ywq` 均含 `images/`、`xml/` 与 `labels.txt`，每张图片都有同名 XML 标注文件；图片和 XML 已分别按 `x000001…`、`y000001…` 连续编号。
+- `gangzhu_k230_data_m1` 由 `dataset_xzh` 和 `dataset_ywq` 原样合并而成，含两组的 `images/`、`xml/` 与统一的 `labels.txt`；未转换图片格式或修改 XML 标注内容。
 - `dataset_zhn` 当前仅含 `images/`。若要用于训练或按上述压缩包格式上传，需补充对应的 `xml/` 标注文件和类别文件 `labels.txt`（内容为 `gangqiu`）。
 - 打包已标注数据集时，进入对应数据集目录，选择 `images/`、`xml/`、`labels.txt` 压缩；ZIP 根目录不要再包含一层数据集文件夹。
 
