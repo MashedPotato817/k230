@@ -52,6 +52,10 @@ if model_type == "AnchorBaseDet":
 inference_mode = "video"                                          # Inference mode: 'video'
 debug_mode = 0                                                    # Debug mode flag
 
+# Display a stable count based on the median of the latest detections.
+COUNT_WINDOW = 10
+count_history = []
+
 # Create and initialize the video/display pipeline
 pl = PipeLine(rgb888p_size=rgb888p_size, display_mode=display_mode)
 pl.create()
@@ -69,6 +73,15 @@ while True:
         img = pl.get_frame()                          # Capture current frame
         res = det_app.run(img)                        # Run inference
         det_app.draw_result(pl.osd_img, res)          # Draw detection results
+        raw_count = len(res["boxes"]) if res and res["boxes"] else 0
+        count_history.append(raw_count)
+        if len(count_history) > COUNT_WINDOW:
+            count_history.pop(0)
+        sorted_counts = sorted(count_history)
+        count = sorted_counts[len(sorted_counts) // 2]
+        pl.osd_img.draw_string_advanced(
+            10, 10, 32, "counts:%d" % count, color=(255, 255, 255, 255)
+        )                                             # Show current detection count at top left
         pl.show_image()                               # Show result on display
         gc.collect()                                  # Run garbage collection
 
