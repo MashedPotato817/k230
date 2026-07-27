@@ -27,7 +27,7 @@ from libs.Utils import *
 
 # Set display mode: options are 'hdmi', 'lcd', 'lt9611', 'st7701', 'hx8399'
 # 'hdmi' defaults to 'lt9611' (1920x1080); 'lcd' defaults to 'st7701' (800x480)
-display_mode = "lt9611"
+display_mode = "lcd"
 
 # Define the input size for the RGB888P video frames
 rgb888p_size = [1280, 720]
